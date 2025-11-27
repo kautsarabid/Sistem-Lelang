@@ -71,7 +71,7 @@ java -cp bin Main
 ```
 
 ## Cara Penggunaan
-1. **Registrasi User**
+### Registrasi User
 1. **Registrasi Peserta**
     1. Pilih menu **1** -> **1**
     2. Masukkan: Nama, NIK, No HP, Alamat
