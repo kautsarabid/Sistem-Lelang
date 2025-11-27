@@ -71,16 +71,16 @@ java -cp bin Main
 ```
 
 ## Cara Penggunaan
-1. **Registrasi User**
-    1. **Registrasi Peserta**
-        1. Pilih menu **1** -> **1**
-        2. Masukkan: Nama, NIK, No HP, Alamat
-        3. Peserta berhasil didaftarkan
+### 1. Registrasi User
+        1. **Registrasi Peserta**
+            1. Pilih menu **1** -> **1**
+            2. Masukkan: Nama, NIK, No HP, Alamat
+            3. Peserta berhasil didaftarkan
 
-    2. **Registrasi Penitip**
-        1. Pilih menu **1** -> **2**
-        2. Masukkan: Nama, NIK, No HP, No Rekening
-        3. Penitip berhasil didaftarkan
+        2. **Registrasi Penitip**
+            1. Pilih menu **1** -> **2**
+            2. Masukkan: Nama, NIK, No HP, No Rekening
+            3. Penitip berhasil didaftarkan
 
 2. **Penitipan Barang**
     1. Pilih menu **2** -> **1**
