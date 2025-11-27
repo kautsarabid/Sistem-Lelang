@@ -14,8 +14,16 @@ public class Main {
     private static PembayaranService pembayaranService = new PembayaranService();
     
     public static void main(String[] args) {
+        // Load data default
+        loadDefaultData();
+        
         System.out.println("==============================================");
         System.out.println("    SISTEM TOKO LELANG BARANG");
+        System.out.println("==============================================");
+        System.out.println("[INFO] Data default telah dimuat:");
+        System.out.println("  - 2 Peserta: Ahmad Rizki & Siti Nurhaliza");
+        System.out.println("  - 1 Penitip: Budi Santoso");
+        System.out.println("  - 3 Barang: Laptop, Smartphone, Kamera");
         System.out.println("==============================================\n");
         
         boolean running = true;
@@ -202,7 +210,7 @@ public class Main {
     private static void bidBarang() {
         System.out.println("\n--- Bid Barang ---");
         
-        barangService.tampilkanBarangTersedia();
+        barangService.tampilkanSemuaBarang();
         String kodeBarang = inputString("\nMasukkan Kode Barang: ");
         
         Barang barang = barangService.cariBarang(kodeBarang);
@@ -215,6 +223,37 @@ public class Main {
             barang.getStatus() != StatusBarang.DIBID) {
             System.out.println("\n[ERROR] Barang tidak tersedia untuk di-bid!\n");
             return;
+        }
+        
+        // Tampilkan detail barang yang dipilih beserta info bid saat ini
+        System.out.println("\n╔════════════════════════════════════════════════════════════╗");
+        System.out.println("║            DETAIL BARANG YANG AKAN DI-BID                  ║");
+        System.out.println("╚════════════════════════════════════════════════════════════╝");
+        barang.tampilkanInfo();
+        
+        // Jika barang sudah pernah di-bid, tampilkan info persaingan
+        if (barang.getStatus() == StatusBarang.DIBID && !barang.getHistoryBid().isEmpty()) {
+            System.out.println("\n┌──────────────────────────────────────────────────────────┐");
+            System.out.println("│               ⚠️  INFORMASI PERSAINGAN BID                │");
+            System.out.println("├──────────────────────────────────────────────────────────┤");
+            System.out.println("│ 🏆 Pemenang Saat Ini: " + barang.getPemenang().getNama());
+            System.out.println("│ 💰 Harga Tertinggi   : Rp " + formatAngka(barang.getHargaTertinggi()));
+            System.out.println("│ 📊 Total Bid         : " + barang.getHistoryBid().size() + " bid");
+            System.out.println("│ 💵 Bid Minimal       : Rp " + formatAngka(barang.getHargaTertinggi() + barang.getKelipatanBid()));
+            System.out.println("└──────────────────────────────────────────────────────────┘");
+            
+            // Tampilkan 3 bid terakhir jika ada
+            if (barang.getHistoryBid().size() > 0) {
+                System.out.println("\n📜 3 Bid Terakhir:");
+                int start = Math.max(0, barang.getHistoryBid().size() - 3);
+                for (int i = barang.getHistoryBid().size() - 1; i >= start; i--) {
+                    Barang.BidHistory history = barang.getHistoryBid().get(i);
+                    System.out.println("   " + (barang.getHistoryBid().size() - i) + ". " + 
+                                     history.getPeserta().getNama() + 
+                                     " → Rp " + formatAngka(history.getHargaBid()));
+                }
+            }
+            System.out.println();
         }
         
         registrasiService.tampilkanSemuaPeserta();
@@ -231,6 +270,17 @@ public class Main {
             return;
         }
         
+        // Cek apakah peserta ini adalah pemenang saat ini
+        if (barang.getPemenang() != null && barang.getPemenang().equals(peserta)) {
+            System.out.println("\n[INFO] Anda adalah pemenang saat ini dengan bid: Rp " + 
+                             formatAngka(barang.getHargaTertinggi()));
+            String konfirmasi = inputString("Apakah ingin menaikkan bid Anda? (ya/tidak): ");
+            if (!konfirmasi.equalsIgnoreCase("ya")) {
+                System.out.println("\n[INFO] Bid dibatalkan.\n");
+                return;
+            }
+        }
+        
         double hargaBid = inputDouble("Harga Bid: ");
         
         // Observer Pattern - barang akan notify observers
@@ -239,10 +289,24 @@ public class Main {
         boolean berhasil = lelangService.lakukanBid(barang, peserta, hargaBid);
         
         if (berhasil) {
-            System.out.println("\n[SUCCESS] Bid berhasil!\n");
+            System.out.println("\n╔════════════════════════════════════════════════════════════╗");
+            System.out.println("║                    ✅ BID BERHASIL!                        ║");
+            System.out.println("╠════════════════════════════════════════════════════════════╣");
+            System.out.println("║ Peserta      : " + peserta.getNama());
+            System.out.println("║ Harga Bid    : Rp " + formatAngka(hargaBid));
+            System.out.println("║ Status       : Pemenang Sementara");
+            System.out.println("╚════════════════════════════════════════════════════════════╝\n");
         } else {
             System.out.println("\n[ERROR] Bid gagal! Harga bid tidak sesuai.\n");
         }
+    }
+    
+    /**
+     * format angka dengan pemisah ribuan
+     */
+    private static String formatAngka(double angka) {
+        java.text.DecimalFormat df = new java.text.DecimalFormat("#,###");
+        return df.format(angka);
     }
     
     private static void buyItNow() {
@@ -465,5 +529,57 @@ public class Main {
                 System.out.println("[ERROR] Masukkan angka yang valid!");
             }
         }
+    }
+
+    private static void loadDefaultData() {
+        // ===== PESERTA =====
+        UserFactory pesertaFactory = new PesertaFactory();
+        Peserta peserta1 = (Peserta) pesertaFactory.createUser(
+            "Kautsar",
+            111,
+            111,
+            "Limpok"
+        );
+        registrasiService.registrasiPeserta(peserta1);
+
+        Peserta peserta2 = (Peserta) pesertaFactory.createUser(
+            "Abid",
+            222,
+            222,
+            "Limpok"
+        );
+        registrasiService.registrasiPeserta(peserta2);
+        
+        // ===== PENITIP =====
+        UserFactory penitipFactory = new PenitipFactory();
+        Penitip penitip1 = (Penitip) penitipFactory.createUser(
+            "Muttaqin",
+            333,
+            333,
+            "1234567890" // No Rekening
+        );
+        registrasiService.registrasiPenitip(penitip1);
+        
+        // ===== BARANG =====
+        Barang barang1 = new Barang(
+            "Laptop Gaming ASUS ROG",
+            "Elektronik",
+            10000000,  // Harga Awal: 10 juta
+            500000,    // Kelipatan Bid: 500 ribu
+            15000000,  // Harga BIN: 15 juta
+            penitip1
+        );
+        barangService.tambahBarang(barang1);
+        
+        Barang barang2 = new Barang(
+            "iPhone 15 Pro Max 256GB",
+            "Elektronik",
+            15000000,  // Harga Awal: 15 juta
+            1000000,   // Kelipatan Bid: 1 juta
+            20000000,  // Harga BIN: 20 juta
+            penitip1
+        );
+        barangService.tambahBarang(barang2);
+        
     }
 }
