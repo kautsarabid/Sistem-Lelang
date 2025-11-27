@@ -73,18 +73,16 @@ java -cp bin Main
 ## Cara Penggunaan
 ### Registrasi User
 1. **Registrasi Peserta**
-    <ol start="1">
-    <li>Pilih menu **1** -> **1**</li>
-    <li>Masukkan: Nama, NIK, No HP, Alamat</li>
-    <li>Peserta berhasil didaftarkan</li>
-    </ol>
+    1. Pilih menu **1** -> **1**
+    2. Masukkan: Nama, NIK, No HP, Alamat
+    3. Peserta berhasil didaftarkan
 
 2. **Registrasi Penitip**
     1. Pilih menu **1** -> **2**
     2. Masukkan: Nama, NIK, No HP, No Rekening
     3. Penitip berhasil didaftarkan
 
-2. **Penitipan Barang**
+### Penitipan Barang
     1. Pilih menu **2** -> **1**
     2. Pilih penitip dari daftar (masukkan NIK)
     3. Masukkan detail barang:
@@ -95,7 +93,7 @@ java -cp bin Main
         * Harga BIN/Buy It Now (Rp)
     4. Barang berhasil dititipkan dengan kode barang
 
-3. **Proses Lelang**
+### Proses Lelang
     1. **Bid Barang**
         1. Pilih menu **3** -> **2**
         2. Lihar daftar barang, pilih kode barang
@@ -129,7 +127,7 @@ java -cp bin Main
         3. Status berubah ke "Menunggu Pembayaran"
         4. Pemenang final ditentukan
 
-4. **Pembayaran**
+### Pembayaran
     1. **Proses Pembayaran**
         1. Pilih Menu **4** -> Pilih metode pembayaran:
             * **2**: Transfer Bank
@@ -148,7 +146,7 @@ java -cp bin Main
         3. Peserta masuk Blacklist
         4. Barang kembali tersedia
 
-5. **Laporan**
+### Laporan
     * Menu **5** -> **1**: Semua barang dengan status
     * Menu **5** -> **2**: Daftar peserta terdaftar
     * Menu **5** -> **3**: Daftar penitip terdaftar
