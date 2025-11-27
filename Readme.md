@@ -73,9 +73,11 @@ java -cp bin Main
 ## Cara Penggunaan
 ### Registrasi User
 1. **Registrasi Peserta**
-    1. Pilih menu **1** -> **1**
-    2. Masukkan: Nama, NIK, No HP, Alamat
-    3. Peserta berhasil didaftarkan
+    <ol>
+    <li>Pilih menu **1** -> **1**</li>
+    <li>Masukkan: Nama, NIK, No HP, Alamat</li>
+    <li>Peserta berhasil didaftarkan</li>
+    </ol>
 
 2. **Registrasi Penitip**
     1. Pilih menu **1** -> **2**
