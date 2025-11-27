@@ -53,7 +53,7 @@ Digunakan untuk memilih metode pembayaran secara dinamis.
 * Format: DecimalFormat untuk format rupiah
 
 ## Cara Instalasi
-1. ** Clone Repository
+1. **Clone Repository**
 ```
 git clone https://github.com/username/sistem-lelang-barang.git
 cd  sistem-lelang-barang
