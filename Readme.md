@@ -39,15 +39,12 @@ Sistem toko lelang barang berbasis Console Application yang dibangun menggunakan
 Sistem ini mengimplementasikan 3 Design Pattern:
 
 1. **Factory Method Pattern**
-
 Digunakan untuk menciptakan objek User (Peserta dan Penitip) secara dinamis.
 
 2. **Observer Pattern**
-
 Digunakan untuk sistem notifikasi real-time kepada peserta lelang
 
 3. **Strategy Pattern**
-
 Digunakan untuk memilih metode pembayaran secara dinamis.
 
 ## Teknologi yang digunakan
