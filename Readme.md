@@ -73,7 +73,7 @@ java -cp bin Main
 ## Cara Penggunaan
 ### Registrasi User
 1. **Registrasi Peserta**
-    <ol>
+    <ol start="1">
     <li>Pilih menu **1** -> **1**</li>
     <li>Masukkan: Nama, NIK, No HP, Alamat</li>
     <li>Peserta berhasil didaftarkan</li>
