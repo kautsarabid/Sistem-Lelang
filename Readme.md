@@ -73,78 +73,78 @@ java -cp bin Main
 ## Cara Penggunaan
 ### Registrasi User
 1. **Registrasi Peserta**
-    1. Pilih menu **1** -> **1**
-    2. Masukkan: Nama, NIK, No HP, Alamat
-    3. Peserta berhasil didaftarkan
+    * Pilih menu **1** -> **1**
+    * Masukkan: Nama, NIK, No HP, Alamat
+    * Peserta berhasil didaftarkan
 
 2. **Registrasi Penitip**
-    1. Pilih menu **1** -> **2**
-    2. Masukkan: Nama, NIK, No HP, No Rekening
-    3. Penitip berhasil didaftarkan
+    * Pilih menu **1** -> **2**
+    * Masukkan: Nama, NIK, No HP, No Rekening
+    * Penitip berhasil didaftarkan
 
 ### Penitipan Barang
-1. Pilih menu **2** -> **1**
-2. Pilih penitip dari daftar (masukkan NIK)
-3. Masukkan detail barang:
+* Pilih menu **2** -> **1**
+* Pilih penitip dari daftar (masukkan NIK)
+* Masukkan detail barang:
     * Nama Barang
     * Jenis Barang
     * Harga Awal (Rp)
     * Kelipatan Bid (Rp)
     * Harga BIN/Buy It Now (Rp)
-4. Barang berhasil dititipkan dengan kode barang
+* Barang berhasil dititipkan dengan kode barang
 
 ### Proses Lelang
 1. **Bid Barang**
-    1. Pilih menu **3** -> **2**
-    2. Lihar daftar barang, pilih kode barang
-    3. Pilih peserta (Masukkan NIK)
-    4. Masukkan harga bid
-    5. Sistem akan:
+    * Pilih menu **3** -> **2**
+    * Lihar daftar barang, pilih kode barang
+    * Pilih peserta (Masukkan NIK)
+    * Masukkan harga bid
+    * Sistem akan:
         * Memvalidasi harga
         * Notifikasi ke semua observer
         * Update pemenang sementara (Peserta bid tertinggi)
         * Simpan ke history bid
 
 2. **Buy It Now (BIN)**
-    1. Pilih menu **3** -> **3**
-    2. Pilih barang dan peserta
-    3. Barang langsung menunggu pembayaran
+    * Pilih menu **3** -> **3**
+    * Pilih barang dan peserta
+    * Barang langsung menunggu pembayaran
 
 3. **Lihat History Bid**
-    1. Pilih menu **3** -> **4**
-    2. Pilih kode barang
-    3. Tampil history lengkap dengan timestamp
+    * Pilih menu **3** -> **4**
+    * Pilih kode barang
+    * Tampil history lengkap dengan timestamp
 
 4. **Cancel Bid**
-    1. Pilih Menu **3** -> **5**
-    2. Pilih barang yang sedang di bid
-    3. Konfirmasi cancel
-    4. Barang kembali tersedia
+    * Pilih Menu **3** -> **5**
+    * Pilih barang yang sedang di bid
+    * Konfirmasi cancel
+    * Barang kembali tersedia
 
 5. **Selesaikan Lelang**
-    1. Pilih menu **3** -> **6**
-    2. Pilih barang yang sedang di bid
-    3. Status berubah ke "Menunggu Pembayaran"
-    4. Pemenang final ditentukan
+    * Pilih menu **3** -> **6**
+    * Pilih barang yang sedang di bid
+    * Status berubah ke "Menunggu Pembayaran"
+    * Pemenang final ditentukan
 
 ### Pembayaran
 1. **Proses Pembayaran**
-    1. Pilih Menu **4** -> Pilih metode pembayaran:
+    * Pilih Menu **4** -> Pilih metode pembayaran:
         * **2**: Transfer Bank
         * **3**: E-Wallet
         * **4**: Cash/Tunai
-    2. Pilih barang yang menunggu pembayaran
-    3. Sistem menampilkan detai pembayaran
-    4. Perhitungan otomatis: 
+    * Pilih barang yang menunggu pembayaran
+    * Sistem menampilkan detai pembayaran
+    * Perhitungan otomatis: 
         * Fee penyelenggara: 10%
         * Pembayaran ke penitip: 90%
-    5. Status barang menjadi TERJUAL
+    * Status barang menjadi TERJUAL
     
 2. **Tandai Bid and Run**
-    1. Pilih menu **4** -> **5**
-    2. Pilih barang yang tidak dibayar
-    3. Peserta masuk Blacklist
-    4. Barang kembali tersedia
+    * Pilih menu **4** -> **5**
+    * Pilih barang yang tidak dibayar
+    * Peserta masuk Blacklist
+    * Barang kembali tersedia
 
 ### Laporan
 * Menu **5** -> **1**: Semua barang dengan status
