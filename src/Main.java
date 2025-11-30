@@ -17,15 +17,6 @@ public class Main {
         // Load data default
         loadDefaultData();
         
-        System.out.println("==============================================");
-        System.out.println("    SISTEM TOKO LELANG BARANG");
-        System.out.println("==============================================");
-        System.out.println("[INFO] Data default telah dimuat:");
-        System.out.println("  - 2 Peserta: Ahmad Rizki & Siti Nurhaliza");
-        System.out.println("  - 1 Penitip: Budi Santoso");
-        System.out.println("  - 3 Barang: Laptop, Smartphone, Kamera");
-        System.out.println("==============================================\n");
-        
         boolean running = true;
         while (running) {
             tampilkanMenuUtama();
